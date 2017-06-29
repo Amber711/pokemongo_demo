@@ -46,15 +46,6 @@ def search_point(cell_id, api):
 	# Print get_maps_object
 	cell_ids = [cell_id]
 	timestamps = [0]
-	response_dict = api.get_map_objects(latitude =position[0],longitude = position[1],since_timestamp_ms = timestamps,cell_id = cell_ids)
-
-	# parse position
-	position = get_position_from_cell_id(cell_id)
-	# set player position on the earth
-	api.set_position(*position)
-	# print get maps object
-	cell_ids = [ cell_id ]
-	timestamps = [0]
 	response_dict = api.get_map_objects(latitude =position[0],
 						longitude = position[1],
 						since_timestamp_ms = timestamps,
@@ -67,7 +58,6 @@ def parse_pokemon(search_response):
 	map_cell = map_cells[0]
 	catchable_pokemons = map_cell["catchable_pokemons"]
 	print catchable_pokemons
-	catchable_pokemons = map_cell["catchable_pokemons"]
 
 	return catchable_pokemons
 
