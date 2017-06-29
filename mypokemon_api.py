@@ -44,7 +44,7 @@ def search_point(cell_id, api):
 	api.set_position(*position)
 
 	# Print get_maps_object
-	cell_ids = [cell_id]
+	cell_ids = [ cell_id ]
 	timestamps = [0]
 	response_dict = api.get_map_objects(latitude =position[0],
 						longitude = position[1],
@@ -56,6 +56,7 @@ def search_point(cell_id, api):
 def parse_pokemon(search_response):
 	map_cells = search_response["responses"]["GET_MAP_OBJECTS"]["map_cells"]
 	map_cell = map_cells[0]
+	print map_cell
 	catchable_pokemons = map_cell["catchable_pokemons"]
 	print catchable_pokemons
 
