@@ -56,9 +56,9 @@ def search_point(cell_id, api):
 def parse_pokemon(search_response):
 	map_cells = search_response["responses"]["GET_MAP_OBJECTS"]["map_cells"]
 	map_cell = map_cells[0]
-	print map_cell
+	print "map_cell:~~~~", map_cell
 	catchable_pokemons = map_cell["catchable_pokemons"]
-	print catchable_pokemons
+	print "~~~ catchable pokemons", catchable_pokemons
 
 	return catchable_pokemons
 
@@ -131,10 +131,9 @@ def init_api(config):
 
 if __name__ == "__main__":
 	config = init_config()
-	api = pgoapi.PGoApi()
-
+	api = init_api(config)
 
 
 	#Point 1: 40.7665138, -74.0003176
 	#Point 2: 40.7473342, -73.987956
-	print scan_area(40.7665138,40.7473342,-74.0003176, -73.487958, api)
+	print "mypokemon_api scan_area:", scan_area(40.7665138,40.7473342,-74.0003176, -73.487958, api)
