@@ -24,11 +24,11 @@
       <file leaf-file-name="mypokemon_api.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mypokemon_api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-397">
-              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+            <state relative-caret-position="-460">
+              <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="e#22#37#0" expanded="true" />
-                <element signature="e#2371#3833#0" expanded="false" />
+                <element signature="e#2408#3870#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -55,8 +55,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1938" />
-    <option name="y" value="139" />
+    <option name="x" value="1792" />
+    <option name="y" value="243" />
     <option name="width" value="1624" />
     <option name="height" value="1283" />
   </component>
@@ -217,12 +217,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498715064071</updated>
-      <workItem from="1498715065879" duration="3468000" />
+      <workItem from="1498715065879" duration="4356000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3468000" />
+    <option name="totallyTimeSpent" value="4356000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -234,7 +234,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1938" y="139" width="1624" height="1283" extended-state="0" />
+    <frame x="1792" y="243" width="1624" height="1283" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -281,11 +281,11 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mypokemon_api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397">
-          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+        <state relative-caret-position="-460">
+          <caret line="55" column="35" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
           <folding>
             <element signature="e#22#37#0" expanded="true" />
-            <element signature="e#2371#3833#0" expanded="false" />
+            <element signature="e#2408#3870#0" expanded="false" />
           </folding>
         </state>
       </provider>

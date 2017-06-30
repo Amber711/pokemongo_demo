@@ -20,7 +20,7 @@ def break_down_area_to_cell(north, south, west, east):
 	region = s2sphere.RegionCoverer()
 	# set min_level and max_level to the same, to make sure we have cells of same size.
 	region.min_level = 15
-	region_max_level = 15
+	region.max_level = 15
 	# generate 2 points to finalize the area.
 	p1 = s2sphere.LatLng.from_degrees(north, west)
 	p2 = s2sphere.LatLng.from_degrees(south, east)
@@ -50,7 +50,7 @@ def search_point(cell_id, api):
 						longitude = position[1],
 						since_timestamp_ms = timestamps,
 						cell_id = cell_ids)
-
+	print "search point:", response_dict
 	return response_dict
 
 def parse_pokemon(search_response):
