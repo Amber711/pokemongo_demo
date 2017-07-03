@@ -8,12 +8,16 @@ import logging
 import getpass
 import argparse
 
+import boto3
 import s2sphere
 from s2sphere import CellId, math
 from mock_pgoapi import mock_pgoapi as pgoapi
 
 
 log = logging.getLogger(__name__)
+SQS_QUEUE_NAME = "awseb-e-ry9ptf3mvb-stack-AWSEBWorkerQueue-R6D11NFULLPM"
+work_queue = boto3.resource('sqs', region_name='us-west-2').get_queue_by_name(QueueName=SQS_QUEUE_NAME)
+
 
 def break_down_area_to_cell(north, south, west, east):
 	""" Return a list of s2 cell id """
@@ -65,13 +69,13 @@ def scan_area(north, south, west, east, api):
 	cell_ids = break_down_area_to_cell(north, south, west, east)
 
 	# 2. Search each point, get result from api
-	work_queue = boto3.resource('sqs', region_name='us-west-2').get_queue_by_name(QueueName=SQS_QUEUE_NAME)
 	for cell_id in cell_ids:
-		search_response = search_point(cell_id, api)
-		pokemons = parse_pokemon(search_response)
-		result += pokemons
+		print cell_id
+		# 3. send requests to elastic worker server
+		work_queue.send_message(MessageBody=json.dumps({"cell_id":cell_id}))
 
 	return result
+
 def init_config():
 	parser = argparse.ArgumentParser()
 	config_file = "config.json"
