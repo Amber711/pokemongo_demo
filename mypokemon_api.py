@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 import os
 import sys
@@ -15,8 +16,7 @@ from mock_pgoapi import mock_pgoapi as pgoapi
 
 
 log = logging.getLogger(__name__)
-SQS_QUEUE_NAME = "awseb-e-ry9ptf3mvb-stack-AWSEBWorkerQueue-R6D11NFULLPM"
-work_queue = boto3.resource('sqs', region_name='us-west-2').get_queue_by_name(QueueName=SQS_QUEUE_NAME)
+SQS_QUEUE_NAME = "awseb-e-ry9ptf3mvb-stack-AWSEBWorkerDeadLetterQueue-1DPNB4CU8YXWE"
 
 
 def break_down_area_to_cell(north, south, west, east):
@@ -55,6 +55,7 @@ def search_point(cell_id, api):
 										cell_id = cell_ids)
 	print "~~search point~~", response_dict
 	return response_dict
+
 def parse_pokemon(search_response):
 	map_cells = search_response["responses"]["GET_MAP_OBJECTS"]["map_cells"]
 	map_cell = map_cells[0]
@@ -62,12 +63,13 @@ def parse_pokemon(search_response):
 	print "parse_pokemon~~~~~:", map_cell
 	return catchable_pokemons
 
+work_queue = boto3.resource('sqs', region_name='us-west-2').get_queue_by_name(QueueName=SQS_QUEUE_NAME)
 def scan_area(north, south, west, east, api):
 	result = []
 
 	# 1. Find all point to search with the area
 	cell_ids = break_down_area_to_cell(north, south, west, east)
-
+	work_queue = boto3.resource('sqs', region_name='us-west-2').get_queue_by_name(QueueName=SQS_QUEUE_NAME)
 	# 2. Search each point, get result from api
 	for cell_id in cell_ids:
 		print cell_id
